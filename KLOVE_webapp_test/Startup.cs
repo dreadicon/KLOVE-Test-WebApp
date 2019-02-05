@@ -8,6 +8,8 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.EntityFrameworkCore;
+using KLOVE_webapp_test.Models;
 
 namespace KLOVE_webapp_test
 {
@@ -32,6 +34,9 @@ namespace KLOVE_webapp_test
 
 
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
+
+            services.AddDbContext<KLOVE_webapp_testContext>(options =>
+                    options.UseSqlServer(Configuration.GetConnectionString("KLOVE_webapp_testContext")));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
