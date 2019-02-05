@@ -4,14 +4,16 @@ using KLOVE_webapp_test.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace KLOVE_webapp_test.Migrations
 {
     [DbContext(typeof(KLOVE_webapp_testContext))]
-    partial class KLOVE_webapp_testContextModelSnapshot : ModelSnapshot
+    [Migration("20190205204910_ContactInfo")]
+    partial class ContactInfo
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
