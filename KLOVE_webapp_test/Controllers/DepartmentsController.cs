@@ -33,13 +33,14 @@ namespace KLOVE_webapp_test.Controllers
             }
 
             var department = await _context.Department
-                .FirstOrDefaultAsync(m => m.Id == id);
+                .Include(s => s.Employees)
+                .AsNoTracking()
+                .SingleOrDefaultAsync(m => m.Id == id);
             if (department == null)
             {
                 return NotFound();
             }
 
-            ViewBag.EmployeeList = new SelectList(nameof(Employee.FirstName));
             return View(department);
         }
 
